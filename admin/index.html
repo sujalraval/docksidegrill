@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Dockside Grill CMS</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Config & DB Wrapper -->
+  <script src="../config.js"></script>
+  
+  <!-- Dashboard CSS -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       Dashboard Container
+       ========================================== -->
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">D</div>
+        <div class="sidebar-title">Dockside Grill</div>
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#" class="sidebar-link active" data-tab="overview">
+            <i class="fa-solid fa-chart-line"></i> Overview
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="menu-mgr">
+            <i class="fa-solid fa-utensils"></i> Menu Items
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="reservations-mgr">
+            <i class="fa-solid fa-calendar-check"></i> Reservations
+            <span class="badge badge-sec" id="badge-res-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="reviews-mgr">
+            <i class="fa-solid fa-star-half-stroke"></i> Reviews Moderation
+            <span class="badge badge-pri" id="badge-rev-count">0</span>
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-link" target="_blank">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Website
+        </a>
+        <a href="#" class="sidebar-link logout-btn" id="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <h1 id="page-title">Dashboard Overview</h1>
+        <div class="admin-profile">
+          <span class="mode-indicator" id="db-mode-indicator">LocalStorage Demo</span>
+          <div class="profile-avatar"><i class="fa-solid fa-user-shield"></i></div>
+        </div>
+      </header>
+
+      <!-- Content Pages -->
+      <div class="content-body">
+        
+        <!-- ==========================================
+             TAB 1: OVERVIEW
+             ========================================== -->
+        <div class="tab-panel active" id="tab-overview">
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon icon-primary"><i class="fa-solid fa-utensils"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Menu Items</span>
+                <span class="stat-val" id="stat-menu-count">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon icon-secondary"><i class="fa-solid fa-ticket"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Total Reservations</span>
+                <span class="stat-val" id="stat-res-count">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon icon-accent"><i class="fa-solid fa-star"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Google Rating</span>
+                <span class="stat-val">4.3 / 5</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon icon-warning"><i class="fa-solid fa-comments"></i></div>
+              <div class="stat-details">
+                <span class="stat-label">Pending Reviews</span>
+                <span class="stat-val" id="stat-rev-count">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Activity Panels -->
+          <div class="activity-grid">
+            <div class="activity-card">
+              <h3>Recent Bookings</h3>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Guest</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Size</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-bookings-list">
+                    <!-- Loaded dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="activity-card">
+              <h3>Review Moderation Queue</h3>
+              <div class="reviews-queue-compact" id="recent-reviews-list">
+                <!-- Loaded dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: MENU MANAGEMENT
+             ========================================== -->
+        <div class="tab-panel" id="tab-menu-mgr">
+          <div class="panel-header">
+            <h2>Dishes & Drinks</h2>
+            <button class="btn btn-primary" id="add-menu-btn"><i class="fa-solid fa-plus"></i> Add New Item</button>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Dish Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Tags</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="menu-items-table">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 3: RESERVATIONS
+             ========================================== -->
+        <div class="tab-panel" id="tab-reservations-mgr">
+          <div class="panel-header">
+            <h2>Online Reservations</h2>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Guest Name</th>
+                  <th>Date & Time</th>
+                  <th>Party Size</th>
+                  <th>Seating Preference</th>
+                  <th>Contact Info</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reservations-table">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 4: REVIEWS
+             ========================================== -->
+        <div class="tab-panel" id="tab-reviews-mgr">
+          <div class="panel-header">
+            <h2>Pending Reviews</h2>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Author</th>
+                  <th>Rating</th>
+                  <th>Comment</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviews-table">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================
+       MODALS
+       ========================================== -->
+  
+  <!-- Add/Edit Menu Item Modal -->
+  <div class="modal-overlay" id="menu-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn">&times;</button>
+      <div class="modal-header">
+        <h2 id="menu-modal-title">Add Menu Item</h2>
+      </div>
+      <div class="modal-body">
+        <form id="menu-item-form">
+          <input type="hidden" id="m-id">
+          
+          <div class="form-group">
+            <label for="m-title" class="form-label">Item Title</label>
+            <input type="text" id="m-title" class="form-input" placeholder="e.g. Seafood Fettuccine" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m-price" class="form-label">Price ($)</label>
+              <input type="number" step="0.01" id="m-price" class="form-input" placeholder="28.00" required>
+            </div>
+            <div class="form-group">
+              <label for="m-category" class="form-label">Category</label>
+              <select id="m-category" class="form-input" required>
+                <option value="starters">Starter / Appetizer</option>
+                <option value="seafood">Signature Seafood</option>
+                <option value="mains">House Main</option>
+                <option value="drinks">Drinks & Desserts</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="m-tags" class="form-label">Tags (comma-separated)</label>
+            <input type="text" id="m-tags" class="form-input" placeholder="e.g. Guest Favorite, Spicy, Gluten-Free">
+          </div>
+          
+          <div class="form-group">
+            <label for="m-desc" class="form-label">Description</label>
+            <textarea id="m-desc" class="form-input" placeholder="Describe this delicious dish..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Dish Image</label>
+            <div class="image-upload-wrapper">
+              <div class="image-preview-box" id="image-preview">
+                <i class="fa-regular fa-image"></i>
+                <span>No Image Selected</span>
+              </div>
+              <div class="upload-btn-wrapper">
+                <button type="button" class="btn btn-outline" id="file-trigger">Choose File</button>
+                <input type="file" id="m-image-file" accept="image/*">
+                <input type="hidden" id="m-image-url">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline modal-cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservation Ticket View Modal -->
+  <div class="modal-overlay" id="ticket-modal">
+    <div class="modal-content" style="max-width: 500px;">
+      <button class="modal-close-btn">&times;</button>
+      <div class="modal-body" id="ticket-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Toast Alerts -->
+  <div class="alert-toast" id="admin-toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="admin-toast-message">Success!</span>
+  </div>
+
+  <!-- Dashboard Controller Script -->
+  <script src="admin.js"></script>
+</body>
+</html>

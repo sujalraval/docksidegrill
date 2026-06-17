@@ -163,139 +163,8 @@
         <button class="filter-btn" data-filter="mains">House Mains</button>
       </div>
       
-      <div class="menu-grid">
-        <!-- Item 1: Smoked Grouper Dip -->
-        <div class="menu-card" data-category="starters">
-          <div class="menu-card-img">
-            <span class="menu-badge">Popular</span>
-            <img src="./unnamed-2.jpg" alt="Smoked Grouper Dip">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">Smoked Grouper Dip</h3>
-              <span class="menu-card-price">$16</span>
-            </div>
-            <p class="menu-card-text">
-              An epic, creamy smoked local grouper dip seasoned with fresh herbs and citrus, served with crispy house-made plantain chips.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Gluten-Free Option</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 2: Conch Chowder -->
-        <div class="menu-card" data-category="starters">
-          <div class="menu-card-img">
-            <span class="menu-badge">Iconic</span>
-            <img src="./unnamed-3.jpg" alt="Conch Chowder">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">Classic Conch Chowder</h3>
-              <span class="menu-card-price">$12</span>
-            </div>
-            <p class="menu-card-text">
-              Rich, mildly spicy traditional tomato-based broth packed with tender Bahamian conch, root vegetables, and aromatic spices.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Spicy</span>
-                <span class="menu-tag">Local Recipe</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 3: Seafood Fettuccine -->
-        <div class="menu-card" data-category="seafood">
-          <div class="menu-card-img">
-            <span class="menu-badge">Best Seller</span>
-            <img src="./unnamed-4.jpg" alt="Seafood Fettuccine">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">Seafood Fettuccine</h3>
-              <span class="menu-card-price">$34</span>
-            </div>
-            <p class="menu-card-text">
-              Al dente fettuccine tossed in a rich, velvety garlic white wine cream sauce, loaded with fresh conch and sweet shrimp.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Guest Favorite</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 4: 12-Spice Curry Ribs -->
-        <div class="menu-card" data-category="mains">
-          <div class="menu-card-img">
-            <span class="menu-badge">Signature</span>
-            <img src="./unnamed.jpg" alt="12-Spice Curry Ribs">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">12-Spice Curry Ribs</h3>
-              <span class="menu-card-price">$28</span>
-            </div>
-            <p class="menu-card-text">
-              Fall-off-the-bone baby back ribs seasoned with our secret 12-spice dry rub, slow-smoked and glazed with a sweet coconut curry BBQ sauce.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Chef Recommended</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 5: Grouper Grilled Cheese -->
-        <div class="menu-card" data-category="seafood">
-          <div class="menu-card-img">
-            <span class="menu-badge">Specialty</span>
-            <img src="./unnamed-1.jpg" alt="Grouper Grilled Cheese">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">Grouper Grilled Cheese</h3>
-              <span class="menu-card-price">$19</span>
-            </div>
-            <p class="menu-card-text">
-              Flaky, grilled local grouper fillet layered with melted Swiss cheese, caramelized onions, and remoulade sauce on toasted brioche.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Seafood Lunch</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 6: Catch of the Day -->
-        <div class="menu-card" data-category="seafood">
-          <div class="menu-card-img">
-            <span class="menu-badge">Fresh</span>
-            <img src="./unnamed-2.jpg" alt="Catch of the Day">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-title-price">
-              <h3 class="menu-card-title">Your Catch, Cooked</h3>
-              <span class="menu-card-price">$22</span>
-            </div>
-            <p class="menu-card-text">
-              Bring in the fish you caught today! Our kitchen will clean and cook it anyway you like (grilled, blackened, or fried) paired with family-style sides.
-            </p>
-            <div class="menu-card-footer">
-              <div class="menu-tags">
-                <span class="menu-tag">Custom</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="menu-grid" id="menu-grid-container">
+        <!-- Dynamically loaded from Database -->
       </div>
     </div>
   </section>
@@ -319,89 +188,7 @@
         </button>
         
         <div class="reviews-wrapper" id="reviews-wrapper">
-          <!-- Review 1 -->
-          <div class="review-slide">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "We were here a week and dined here almost every night. Everything was fantastic! The grouper dip, seafood fettuccine, the 12 spice ribs... All of it is fabulous! Recommend everything on the menu. Also, the people are fabulous as well."
-            </p>
-            <div class="review-author">
-              <div class="author-avatar">DD</div>
-              <div class="author-info">
-                <h4 class="author-info-name">David Dingler</h4>
-                <p class="author-info-title">Local Guide</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Review 2 -->
-          <div class="review-slide">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Got the seafood fettuccine and grouper grilled cheese and they were both delicious. Another night the kitchen cooked a variety of fish we caught and we paired it with family-style sides."
-            </p>
-            <div class="review-author">
-              <div class="author-avatar">AH</div>
-              <div class="author-info">
-                <h4 class="author-info-name">Anna Ha</h4>
-                <p class="author-info-title">Local Guide</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Review 3 -->
-          <div class="review-slide">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Best conch chowder and seafood fettuccine ever. Service was friendly and impeccable, many thanks to Nelson who waited a table of 10 to perfection."
-            </p>
-            <div class="review-author">
-              <div class="author-avatar">CR</div>
-              <div class="author-info">
-                <h4 class="author-info-name">Check a Resto</h4>
-                <p class="author-info-title">Local Guide</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 4 -->
-          <div class="review-slide">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Conch chowder. Curry Ribs!!!!! I don't even know what to say but more please! If you don't eat here and you don't visit you are missing an iconic Bahamian experience."
-            </p>
-            <div class="review-author">
-              <div class="author-avatar">DK</div>
-              <div class="author-info">
-                <h4 class="author-info-name">Dan Kunz</h4>
-                <p class="author-info-title">Local Guide</p>
-              </div>
-            </div>
-          </div>
+          <!-- Dynamically loaded from Database -->
         </div>
         
         <div class="slider-dots" id="slider-dots">
@@ -409,10 +196,13 @@
         </div>
       </div>
       
-      <div class="review-cta-box">
+      <div class="review-cta-box" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
         <a href="https://maps.google.com/?q=Dockside+Grill+West+End+Bahamas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <i class="fa-brands fa-google"></i> Write a Google Review
         </a>
+        <button class="btn btn-primary" id="write-review-btn">
+          <i class="fa-solid fa-pen-to-square"></i> Submit Website Review
+        </button>
       </div>
     </div>
   </section>
@@ -642,11 +432,56 @@
     </div>
   </div>
 
+  <!-- Write a Review Modal Overlay -->
+  <div class="modal-overlay" id="review-modal-overlay">
+    <div class="modal-content" style="max-width: 500px;">
+      <button class="modal-close-btn" id="review-modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <h2 class="modal-title">Write a Review</h2>
+        <p class="modal-subtitle">Share your experience at Dockside Grill</p>
+      </div>
+      
+      <div class="modal-body">
+        <form id="review-form">
+          <div class="form-group">
+            <label for="r-name" class="form-label">Your Name</label>
+            <input type="text" id="r-name" class="form-input" placeholder="e.g. Samuel Hills" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="r-rating" class="form-label">Star Rating</label>
+            <select id="r-rating" class="form-input" required>
+              <option value="5" selected>5 Stars - Exceptional</option>
+              <option value="4">4 Stars - Very Good</option>
+              <option value="3">3 Stars - Good</option>
+              <option value="2">2 Stars - Disappointing</option>
+              <option value="1">1 Star - Poor</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="r-text" class="form-label">Your Review</label>
+            <textarea id="r-text" class="form-input" placeholder="What did you love about your visit? Smoked grouper dip, ribs, Nelson's service..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Submit for Moderation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Alert Toast Alert -->
   <div class="alert-toast" id="alert-toast">
     <i class="fa-solid fa-circle-check"></i>
     <span id="alert-message">Action Completed Successfully!</span>
   </div>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Config & DB Wrapper -->
+  <script src="config.js"></script>
 
   <!-- Leaflet Map JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
