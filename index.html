@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dockside Grill in West End, Bahamas - Savor fresh conch chowder, legendary seafood fettuccine, and smoked grouper dip with stunning marina views.">
+  <title>Dockside Grill | Iconic Bahamian Dining in West End</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       Header & Navigation
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="#home" class="logo-anchor">
+        <div class="logo">
+          <img src="./logo.png" alt="Dockside Grill Logo" class="logo-img">
+        </div>
+      </a>
+      
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">Our Story</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Find Us</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="theme-switch" id="theme-switch" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="btn btn-primary nav-btn" id="nav-book-btn">Book Table</button>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Hero Section
+       ========================================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tagline">West End, Grand Bahama</span>
+        <h1 class="hero-title">An Iconic <span>Bahamian</span> Culinary Experience</h1>
+        <p class="hero-description">
+          Savor fresh local catches, authentic island spices, and chilled cocktails. Dine-in on the terrace, or grab takeaway for a quick bite.
+        </p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" id="hero-book-btn">Book a Table</button>
+          <a href="#menu" class="btn btn-outline">Explore Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       About Section
+       ========================================== -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content-left" id="about-content">
+          <span class="section-subtitle">Since 2018</span>
+          <h2 class="section-title">Island Flavors Meets Marina Views</h2>
+          <p class="about-desc">
+            Nestled on the waterfront in West End, Bahamas, Dockside Grill is where both locals and travelers come to gather. We focus on celebrating the bounty of our local oceans with simple, perfectly crafted dishes. 
+          </p>
+          <p class="about-desc">
+            Whether you are stopping by boat after a day on the waters or staying for a week, our friendly team makes you feel right at home. From our legendary service to our iconic Bahamian recipes, every detail is crafted to perfection.
+          </p>
+          <div class="about-features">
+            <div class="feature-box">
+              <div class="feature-box-icon">
+                <i class="fa-solid fa-fish"></i>
+              </div>
+              <div class="feature-box-content">
+                <h3 class="feature-box-title">Ocean-To-Table</h3>
+                <p class="feature-box-desc">Freshly caught local grouper, conch, and snapper daily.</p>
+              </div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-icon">
+                <i class="fa-solid fa-anchor"></i>
+              </div>
+              <div class="feature-box-content">
+                <h3 class="feature-box-title">Marina Views</h3>
+                <p class="feature-box-desc">Dine with a front-row view of sailboats and yachts.</p>
+              </div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-icon">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <div class="feature-box-content">
+                <h3 class="feature-box-title">Casual & Friendly</h3>
+                <p class="feature-box-desc">Great for kids, families, tourists, and groups.</p>
+              </div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-box-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </div>
+              <div class="feature-box-content">
+                <h3 class="feature-box-title">Dine-In & Takeaway</h3>
+                <p class="feature-box-desc">Grab a quick bite to go or join us for solo dining.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-gallery" id="about-gallery">
+          <div class="gallery-item gallery-item-large">
+            <img src="./unnamed-2.jpg" alt="Dockside Grill Atmosphere">
+          </div>
+          <div class="gallery-item">
+            <img src="./unnamed-3.jpg" alt="Chef Seafood Special">
+          </div>
+          <div class="gallery-item">
+            <img src="./unnamed-4.jpg" alt="Waterfront Dining">
+          </div>
+          <div class="gallery-accent-badge">
+            <span class="badge-num">4.3</span>
+            <span class="badge-text">Stars on Maps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Menu Section
+       ========================================== -->
+  <section class="menu section-padding" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Menu</span>
+        <h2 class="section-title">Savor Island Delicacies</h2>
+        <p style="color: var(--text-muted);">Explore a selection of our guest-favorite dishes, loaded with fresh conch, local catches, and signature spice blends.</p>
+      </div>
+      
+      <div class="menu-filters">
+        <button class="filter-btn active" data-filter="all">All Dishes</button>
+        <button class="filter-btn" data-filter="starters">Starters</button>
+        <button class="filter-btn" data-filter="seafood">Signature Seafood</button>
+        <button class="filter-btn" data-filter="mains">House Mains</button>
+      </div>
+      
+      <div class="menu-grid">
+        <!-- Item 1: Smoked Grouper Dip -->
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-img">
+            <span class="menu-badge">Popular</span>
+            <img src="./unnamed-2.jpg" alt="Smoked Grouper Dip">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">Smoked Grouper Dip</h3>
+              <span class="menu-card-price">$16</span>
+            </div>
+            <p class="menu-card-text">
+              An epic, creamy smoked local grouper dip seasoned with fresh herbs and citrus, served with crispy house-made plantain chips.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Gluten-Free Option</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 2: Conch Chowder -->
+        <div class="menu-card" data-category="starters">
+          <div class="menu-card-img">
+            <span class="menu-badge">Iconic</span>
+            <img src="./unnamed-3.jpg" alt="Conch Chowder">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">Classic Conch Chowder</h3>
+              <span class="menu-card-price">$12</span>
+            </div>
+            <p class="menu-card-text">
+              Rich, mildly spicy traditional tomato-based broth packed with tender Bahamian conch, root vegetables, and aromatic spices.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Spicy</span>
+                <span class="menu-tag">Local Recipe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3: Seafood Fettuccine -->
+        <div class="menu-card" data-category="seafood">
+          <div class="menu-card-img">
+            <span class="menu-badge">Best Seller</span>
+            <img src="./unnamed-4.jpg" alt="Seafood Fettuccine">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">Seafood Fettuccine</h3>
+              <span class="menu-card-price">$34</span>
+            </div>
+            <p class="menu-card-text">
+              Al dente fettuccine tossed in a rich, velvety garlic white wine cream sauce, loaded with fresh conch and sweet shrimp.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Guest Favorite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 4: 12-Spice Curry Ribs -->
+        <div class="menu-card" data-category="mains">
+          <div class="menu-card-img">
+            <span class="menu-badge">Signature</span>
+            <img src="./unnamed.jpg" alt="12-Spice Curry Ribs">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">12-Spice Curry Ribs</h3>
+              <span class="menu-card-price">$28</span>
+            </div>
+            <p class="menu-card-text">
+              Fall-off-the-bone baby back ribs seasoned with our secret 12-spice dry rub, slow-smoked and glazed with a sweet coconut curry BBQ sauce.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Chef Recommended</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 5: Grouper Grilled Cheese -->
+        <div class="menu-card" data-category="seafood">
+          <div class="menu-card-img">
+            <span class="menu-badge">Specialty</span>
+            <img src="./unnamed-1.jpg" alt="Grouper Grilled Cheese">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">Grouper Grilled Cheese</h3>
+              <span class="menu-card-price">$19</span>
+            </div>
+            <p class="menu-card-text">
+              Flaky, grilled local grouper fillet layered with melted Swiss cheese, caramelized onions, and remoulade sauce on toasted brioche.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Seafood Lunch</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 6: Catch of the Day -->
+        <div class="menu-card" data-category="seafood">
+          <div class="menu-card-img">
+            <span class="menu-badge">Fresh</span>
+            <img src="./unnamed-2.jpg" alt="Catch of the Day">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-title-price">
+              <h3 class="menu-card-title">Your Catch, Cooked</h3>
+              <span class="menu-card-price">$22</span>
+            </div>
+            <p class="menu-card-text">
+              Bring in the fish you caught today! Our kitchen will clean and cook it anyway you like (grilled, blackened, or fried) paired with family-style sides.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-tags">
+                <span class="menu-tag">Custom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Reviews Section
+       ========================================== -->
+  <section class="reviews section-padding" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Testimonials</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+      </div>
+      
+      <div class="reviews-slider-container">
+        <button class="slider-control control-prev" id="prev-review-btn" aria-label="Previous Review">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-control control-next" id="next-review-btn" aria-label="Next Review">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        
+        <div class="reviews-wrapper" id="reviews-wrapper">
+          <!-- Review 1 -->
+          <div class="review-slide">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "We were here a week and dined here almost every night. Everything was fantastic! The grouper dip, seafood fettuccine, the 12 spice ribs... All of it is fabulous! Recommend everything on the menu. Also, the people are fabulous as well."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">DD</div>
+              <div class="author-info">
+                <h4 class="author-info-name">David Dingler</h4>
+                <p class="author-info-title">Local Guide</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Review 2 -->
+          <div class="review-slide">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Got the seafood fettuccine and grouper grilled cheese and they were both delicious. Another night the kitchen cooked a variety of fish we caught and we paired it with family-style sides."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">AH</div>
+              <div class="author-info">
+                <h4 class="author-info-name">Anna Ha</h4>
+                <p class="author-info-title">Local Guide</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Review 3 -->
+          <div class="review-slide">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Best conch chowder and seafood fettuccine ever. Service was friendly and impeccable, many thanks to Nelson who waited a table of 10 to perfection."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">CR</div>
+              <div class="author-info">
+                <h4 class="author-info-name">Check a Resto</h4>
+                <p class="author-info-title">Local Guide</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-slide">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Conch chowder. Curry Ribs!!!!! I don't even know what to say but more please! If you don't eat here and you don't visit you are missing an iconic Bahamian experience."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">DK</div>
+              <div class="author-info">
+                <h4 class="author-info-name">Dan Kunz</h4>
+                <p class="author-info-title">Local Guide</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider-dots" id="slider-dots">
+          <!-- Dots dynamically created by script -->
+        </div>
+      </div>
+      
+      <div class="review-cta-box">
+        <a href="https://maps.google.com/?q=Dockside+Grill+West+End+Bahamas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <i class="fa-brands fa-google"></i> Write a Google Review
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Contact & Map Section
+       ========================================== -->
+  <section class="contact section-padding" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info-panel">
+          <div>
+            <span class="section-subtitle">How to Find Us</span>
+            <h2 class="section-title">Drop Anchor & Eat</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">
+              Located right by the harbor, you can arrive by foot or tie up your boat in the West End marina. We look forward to seeing you.
+            </p>
+            
+            <div class="contact-details">
+              <!-- Location -->
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="contact-text">
+                  <h4>Address</h4>
+                  <p>P225+49X, Bayshore Rd, West End, Grand Bahama, Bahamas</p>
+                </div>
+              </div>
+              <!-- Phone -->
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="contact-text">
+                  <h4>Phone</h4>
+                  <p><a href="tel:+12426025173">+1 242-602-5173</a></p>
+                </div>
+              </div>
+              <!-- Hours -->
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="contact-text">
+                  <h4>Open Daily</h4>
+                  <p>11:00 AM – 10:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Interactive Map Container -->
+          <div class="map-wrapper">
+            <div id="map"></div>
+          </div>
+        </div>
+        
+        <div class="contact-form-panel">
+          <h3 class="contact-form-title">Send Us a Message</h3>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name" class="form-label">First & Last Name</label>
+                <input type="text" id="c-name" class="form-input" placeholder="David Dingler" required>
+              </div>
+              <div class="form-group">
+                <label for="c-email" class="form-label">Email Address</label>
+                <input type="email" id="c-email" class="form-input" placeholder="david@example.com" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="c-subject" class="form-label">Subject</label>
+              <input type="text" id="c-subject" class="form-input" placeholder="Catering, Group Dining, Feedback" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="c-message" class="form-label">Message</label>
+              <textarea id="c-message" class="form-input" placeholder="Write your message here..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Footer
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="./logo.png" alt="Dockside Grill Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 20px; height: 50px;">
+          <p>An authentic Bahamian culinary landmark located in West End. Exceptional seafood, slow-cooked ribs, and waterfront sunset views that stay in your memory forever.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-tripadvisor"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#menu">Menu Choices</a></li>
+            <li><a href="#reviews">Guest Reviews</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Highlights</h4>
+          <ul class="footer-links-list">
+            <li><a href="#menu">Smoked Grouper Dip</a></li>
+            <li><a href="#menu">Conch Chowder</a></li>
+            <li><a href="#menu">Seafood Fettuccine</a></li>
+            <li><a href="#menu">12-Spice Ribs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe to receive recipes, event notifications, and seasonal promotions.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Email Address" required>
+            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Dockside Grill. All rights reserved. Made in West End, Grand Bahama.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       Modals
+       ========================================== -->
+  <!-- Booking Table Modal Overlay -->
+  <div class="modal-overlay" id="booking-modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <h2 class="modal-title">Book a Table</h2>
+        <p class="modal-subtitle">Reserve your waterfront table at Dockside Grill</p>
+      </div>
+      
+      <div class="modal-body" id="modal-body-content">
+        <!-- Reservation Form -->
+        <form id="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-date" class="form-label">Select Date</label>
+              <input type="date" id="b-date" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="b-time" class="form-label">Select Time</label>
+              <select id="b-time" class="form-input" required>
+                <option value="" disabled selected>Select dining time</option>
+                <option value="11:30 AM">11:30 AM (Lunch)</option>
+                <option value="12:30 PM">12:30 PM (Lunch)</option>
+                <option value="1:30 PM">1:30 PM (Lunch)</option>
+                <option value="5:30 PM">5:30 PM (Sunset)</option>
+                <option value="6:00 PM">6:00 PM (Sunset)</option>
+                <option value="6:30 PM">6:30 PM (Dinner)</option>
+                <option value="7:00 PM">7:00 PM (Dinner)</option>
+                <option value="7:30 PM">7:30 PM (Dinner)</option>
+                <option value="8:00 PM">8:00 PM (Dinner)</option>
+                <option value="8:30 PM">8:30 PM (Dinner)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-guests" class="form-label">Guests Count</label>
+              <select id="b-guests" class="form-input" required>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5 Guests">5 Guests</option>
+                <option value="6 Guests">6 Guests</option>
+                <option value="7 Guests">7 Guests</option>
+                <option value="8 Guests">8 Guests</option>
+                <option value="10+ Guests">10+ Guests (Group)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="b-seating" class="form-label">Seating Preference</label>
+              <select id="b-seating" class="form-input">
+                <option value="Marina View Terrace" selected>Marina View Terrace (Recommended)</option>
+                <option value="Indoor Main Dining Room">Indoor Main Dining Room (Air-conditioned)</option>
+                <option value="Bar Side Lounge">Bar Side Lounge (High Top)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-name" class="form-label">Full Name</label>
+              <input type="text" id="b-name" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="b-email" class="form-label">Email Address</label>
+              <input type="email" id="b-email" class="form-input" placeholder="email@domain.com" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="b-phone" class="form-label">Phone Number</label>
+            <input type="tel" id="b-phone" class="form-input" placeholder="+1 (242) 000-0000" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="b-notes" class="form-label">Special Requests / Occasion</label>
+            <textarea id="b-notes" class="form-input" placeholder="Birthday, anniversary, food allergies, arrival by boat..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Toast Alert -->
+  <div class="alert-toast" id="alert-toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="alert-message">Action Completed Successfully!</span>
+  </div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
